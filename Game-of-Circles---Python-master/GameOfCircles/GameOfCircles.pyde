@@ -1,5 +1,7 @@
 import platform
 from Raindrop import Raindrop
+from Screensaver import Screensaver
+from Jiggle import Jiggle
 from Bullet import Bullet
 from Enemy import Enemy
 from Player import Player
@@ -25,6 +27,8 @@ def setup():
     sprites.append(Raindrop(400, 400, enemyTeam))
     sprites.append(Raindrop(450, 450, enemyTeam))
     sprites.append(Raindrop(500, 500, enemyTeam))
+    sprites.append(Screensaver(50, 50, enemyTeam))
+    sprites.append(Jiggle(100, 100, enemyTeam))
     
                            
 def draw():
