@@ -1,4 +1,5 @@
 import platform
+import SpriteManager
 from Raindrop import Raindrop
 from Screensaver import Screensaver
 from Jiggle import Jiggle
@@ -6,39 +7,41 @@ from Bullet import Bullet
 from Enemy import Enemy
 from Player import Player
 from SpriteManager import sprites
+from shoot import shoot
 
 def setup():
     print "Built with Processing Python version " + platform.python_version()
-    
-    global player, sprites
-    size(500, 500)
+    size(900, 900)
     playerTeam = 1
     enemyTeam = 2
     player = Player(width/2, height/2, playerTeam)
+    SpriteManager.setPlayer(player)
     
-    sprites.append(player)
-    sprites.append(Raindrop(50, 50, enemyTeam))
-    sprites.append(Raindrop(150, 150, enemyTeam))
-    sprites.append(Raindrop(20, 20, enemyTeam))
-    sprites.append(Raindrop(100, 100, enemyTeam))
-    sprites.append(Raindrop(30, 30, enemyTeam))
-    sprites.append(Raindrop(200, 200, enemyTeam))
-    sprites.append(Raindrop(300, 300, enemyTeam))
-    sprites.append(Raindrop(400, 400, enemyTeam))
-    sprites.append(Raindrop(450, 450, enemyTeam))
-    sprites.append(Raindrop(500, 500, enemyTeam))
-    sprites.append(Screensaver(50, 50, enemyTeam))
-    sprites.append(Jiggle(100, 100, enemyTeam))
+    SpriteManager.spawn(player)
+    SpriteManager.spawn(Raindrop(50, 50, enemyTeam))
+    SpriteManager.spawn(Raindrop(100, 100, enemyTeam))
+    SpriteManager.spawn(Raindrop(150, 150, enemyTeam))
+    SpriteManager.spawn(Raindrop(200, 200, enemyTeam))
+    SpriteManager.spawn(Raindrop(250, 250, enemyTeam))
+    SpriteManager.spawn(Raindrop(300, 300, enemyTeam))
+    SpriteManager.spawn(Raindrop(350, 350, enemyTeam))
+    SpriteManager.spawn(Raindrop(400, 400, enemyTeam))
+    SpriteManager.spawn(Raindrop(500, 400, enemyTeam))
+    SpriteManager.spawn(Raindrop(550, 350, enemyTeam))
+    SpriteManager.spawn(Raindrop(600, 300, enemyTeam))
+    SpriteManager.spawn(Raindrop(650, 250, enemyTeam))
+    SpriteManager.spawn(Raindrop(700, 200, enemyTeam))
+    SpriteManager.spawn(Raindrop(750, 150, enemyTeam))
+    SpriteManager.spawn(Raindrop(800, 100, enemyTeam))
+    SpriteManager.spawn(Raindrop(850, 50, enemyTeam))
+    SpriteManager.spawn(Screensaver(50, 50, enemyTeam))
+    SpriteManager.spawn(Jiggle(100, 100, enemyTeam))
+    SpriteManager.spawn(shoot(200, 300, enemyTeam))
     
                            
 def draw():
-    global player, sprites
-    background(255)    
-
-    for sprite in sprites:
-        sprite.animate()
-        
-    checkCollisions()
+    background(255)
+    SpriteManager.animate()    
     
 def checkCollisions():
     global sprites

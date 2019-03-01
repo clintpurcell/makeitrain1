@@ -1,6 +1,6 @@
-class Raindrop:
-    
-    speed = 8
+from Sprite import Sprite
+class Raindrop(Sprite):
+    speed = 5
     diameter = 20
     c = color(0,0,255)
     

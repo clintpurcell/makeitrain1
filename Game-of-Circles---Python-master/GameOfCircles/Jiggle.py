@@ -1,4 +1,5 @@
-class Jiggle:
+from Sprite import Sprite
+class Jiggle(Sprite):
     
     speed = 8
     diameter = 50

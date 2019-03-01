@@ -1,4 +1,5 @@
-class Bullet:
+from Sprite import Sprite
+class Bullet(Sprite):
     
     diameter = 10
     c = color(0)
