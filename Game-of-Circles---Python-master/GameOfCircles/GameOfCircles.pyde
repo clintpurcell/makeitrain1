@@ -1,5 +1,6 @@
 import platform
 import SpriteManager
+
 from Raindrop import Raindrop
 from Screensaver import Screensaver
 from Jiggle import Jiggle
@@ -57,8 +58,8 @@ def checkCollisions():
     
 def keyPressed():
     global player
-    player.keyDown()    
+    SpriteManager.getPlayer().keyDown()    
         
 def keyReleased():
     global player
-    player.keyUp()
+    SpriteManager.getPlayer().keyUp()
