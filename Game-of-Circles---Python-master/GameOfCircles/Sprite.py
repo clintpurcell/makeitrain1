@@ -1,4 +1,5 @@
 import SpriteManager
+
 class Sprite(object):
     team = 2
     diameter = 50

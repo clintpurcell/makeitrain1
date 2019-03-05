@@ -1,4 +1,6 @@
 import SpriteManager
+import math
+from Player import Player
 from Sprite import Sprite
 from Bullet import Bullet
 
@@ -17,8 +19,13 @@ class shoot(Sprite):
         self.fire(vector)
         
     def aim(self, target):
-        #solve unit vector
-        return PVector(0, 10) #use vector value here
+        d = ((self.x - target.x)**2 + (self.y - target.y)**2)**.5
+        xComp = target.x - self.x
+        yComp = target.y - self.y
+        xVec = xComp/2 * .1
+        yVec = yComp/2 * .1
+        return PVector(xVec, yVec)
     
     def fire(self, vector):
         SpriteManager.spawn(Bullet(self.x, self.y, vector, self.team))
+            

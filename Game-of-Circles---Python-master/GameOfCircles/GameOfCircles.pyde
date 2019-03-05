@@ -17,8 +17,7 @@ def setup():
     enemyTeam = 2
     player = Player(width/2, height/2, playerTeam)
     SpriteManager.setPlayer(player)
-    
-    SpriteManager.spawn(player)
+
     SpriteManager.spawn(Raindrop(50, 50, enemyTeam))
     SpriteManager.spawn(Raindrop(100, 100, enemyTeam))
     SpriteManager.spawn(Raindrop(150, 150, enemyTeam))
@@ -43,18 +42,6 @@ def setup():
 def draw():
     background(255)
     SpriteManager.animate()    
-    
-def checkCollisions():
-    global sprites
-    for a in sprites:
-        for b in sprites:
-            if a.team != b.team:
-                d = (pow(a.x - b.x, 2) + pow(a.y - b.y, 2))**(0.5)
-                r1 = a.diameter / 2
-                r2 = b.diameter / 2
-                if(r1 + r2 > d):
-                    sprites.remove(a)
-                    sprites.remove(b)
     
 def keyPressed():
     global player
