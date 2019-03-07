@@ -6,7 +6,8 @@ from Bullet import Bullet
 
 class shoot(Sprite):
     
-    speed = 5
+    xspeed = 3
+    yspeed = 3
     diameter = 50
     c = color(250,200,10)
     mark = 0
@@ -14,10 +15,13 @@ class shoot(Sprite):
     go = True
     
     def move(self):
-        self.x += self.speed
-        if(self.x < 0 or self.x > width):
-            self.speed *= -1
-        
+        self.x += self.xspeed
+        self.y += self.yspeed
+        if self.y < 0 or self.y > width:
+            self.yspeed *= -1
+        if self.x < 0 or self.x > height:
+            self.xspeed *= -1
+            
         vector = self.aim(SpriteManager.getPlayer())
         self.fire(vector)
         
@@ -25,8 +29,9 @@ class shoot(Sprite):
         d = ((self.x - target.x)**2 + (self.y - target.y)**2)**.5
         xComp = target.x - self.x
         yComp = target.y - self.y
-        xVec = xComp/2 * .1
-        yVec = yComp/2 * .1
+        magnitude = 10
+        xVec = xComp/d * magnitude
+        yVec = yComp/d * magnitude
         return PVector(xVec, yVec)
     
     def fire(self, vector):

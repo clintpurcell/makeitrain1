@@ -6,7 +6,7 @@ from BigShot import BigShot
 
 class BigShooter(Sprite):
     
-    speed = 3
+    speed = 2
     diameter = 90
     c = color(250,20,10)
     mark = 0
@@ -25,8 +25,9 @@ class BigShooter(Sprite):
         d = ((self.x - target.x)**2 + (self.y - target.y)**2)**.5
         xComp = target.x - self.x
         yComp = target.y - self.y
-        xVec = xComp/2 * .1
-        yVec = yComp/2 * .1
+        magnitude = 4
+        xVec = xComp/d * magnitude
+        yVec = yComp/d * magnitude
         return PVector(xVec, yVec)
     
     def fire(self, vector):

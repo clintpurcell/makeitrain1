@@ -1,7 +1,7 @@
 from Sprite import Sprite
 class Screensaver(Sprite):
     
-    xspeed = 10
+    xspeed = 5
     yspeed = 5
     diameter = 50
     c = color(0,0,255)

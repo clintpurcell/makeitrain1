@@ -1,12 +1,12 @@
 from Sprite import Sprite
 class Raindrop(Sprite):
-    speed = 5
+    speed = 3
     diameter = 20
     c = color(0,0,255)
     
     def __init__(self, x, y, team):
-        self.x = x
-        self.y = y
+        self.x = random(0,900)
+        self.y = random(0,50)
         self.team = team
         
     def move(self):
