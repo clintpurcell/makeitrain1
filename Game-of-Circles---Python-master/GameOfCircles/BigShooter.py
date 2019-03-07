@@ -2,15 +2,15 @@ import SpriteManager
 import math
 from Player import Player
 from Sprite import Sprite
-from Bullet import Bullet
+from BigShot import BigShot
 
-class shoot(Sprite):
+class BigShooter(Sprite):
     
-    speed = 5
-    diameter = 50
-    c = color(250,200,10)
+    speed = 3
+    diameter = 90
+    c = color(250,20,10)
     mark = 0
-    wait = 500
+    wait = 2000
     go = True
     
     def move(self):
@@ -36,4 +36,4 @@ class shoot(Sprite):
             
         if(self.go):
             self.go = False
-            SpriteManager.spawn(Bullet(self.x, self.y, vector, self.team))
+            SpriteManager.spawn(BigShot(self.x, self.y, vector, self.team))

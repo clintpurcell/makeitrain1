@@ -39,7 +39,7 @@ class Player(Sprite):
     def keyDown(self):
         if key == 's' or key == 'S':
             SpriteManager.spawn(Bullet(self.x, self.y, PVector(0, 10), self.team))
-        if key == 'w' or key == 'W':
+        if key == ' ' or key == 'w':
             SpriteManager.spawn(Bullet(self.x, self.y, PVector(0, -10), self.team))
             
             

@@ -9,6 +9,7 @@ from Enemy import Enemy
 from Player import Player
 from SpriteManager import sprites
 from shoot import shoot
+from BigShooter import BigShooter
 
 def setup():
     print "Built with Processing Python version " + platform.python_version()
@@ -37,6 +38,7 @@ def setup():
     SpriteManager.spawn(Screensaver(50, 50, enemyTeam))
     SpriteManager.spawn(Jiggle(100, 100, enemyTeam))
     SpriteManager.spawn(shoot(200, 300, enemyTeam))
+    SpriteManager.spawn(BigShooter(50, 100, enemyTeam))
     
                            
 def draw():
