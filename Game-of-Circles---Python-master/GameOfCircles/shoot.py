@@ -6,13 +6,18 @@ from Bullet import Bullet
 
 class shoot(Sprite):
     
-    xspeed = 3
-    yspeed = 3
+    xspeed = 1
+    yspeed = 1
     diameter = 50
     c = color(250,200,10)
     mark = 0
     wait = 500
     go = True
+    
+    def __init__(self, x, y, team):
+        self.x = random(0, 900)
+        self.y = random(0,50)
+        self.team = team
     
     def move(self):
         self.x += self.xspeed
@@ -29,7 +34,7 @@ class shoot(Sprite):
         d = ((self.x - target.x)**2 + (self.y - target.y)**2)**.5
         xComp = target.x - self.x
         yComp = target.y - self.y
-        magnitude = 10
+        magnitude = 5
         xVec = xComp/d * magnitude
         yVec = yComp/d * magnitude
         return PVector(xVec, yVec)

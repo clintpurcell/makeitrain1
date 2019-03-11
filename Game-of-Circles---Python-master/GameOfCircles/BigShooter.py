@@ -13,6 +13,11 @@ class BigShooter(Sprite):
     wait = 2000
     go = True
     
+    def __init__(self, x, y, team):
+        self.x = random(0, 900)
+        self.y = random(0,50)
+        self.team = team
+    
     def move(self):
         self.x += self.speed
         if(self.x < 0 or self.x > width):

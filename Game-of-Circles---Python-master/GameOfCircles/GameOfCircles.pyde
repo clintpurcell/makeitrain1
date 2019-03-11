@@ -34,7 +34,7 @@ def setup():
     SpriteManager.spawn(Screensaver(50, 50, enemyTeam))
     SpriteManager.spawn(Jiggle(100, 100, enemyTeam))
     SpriteManager.spawn(shoot(200, 300, enemyTeam))
-    SpriteManager.spawn(BigShooter(50, 100, enemyTeam))
+    SpriteManager.spawn(BigShooter(20, 400, enemyTeam))
     
                            
 def draw():
