@@ -4,8 +4,6 @@ from Sprite import Sprite
 
 class Player(Sprite):
     
-    def handleCollision(self):
-        pass
     
     # instance variables
     left = False
