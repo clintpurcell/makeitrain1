@@ -13,6 +13,7 @@ class Player(Sprite):
     speed = 5
     diameter = 50  
     c = color(255,0,0)
+    sw = 1
     
     def __init__(self, x, y, team):
         self.x = x

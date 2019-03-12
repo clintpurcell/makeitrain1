@@ -14,10 +14,3 @@ class Bullet(Sprite):
         self.x += self.vector.x
         self.y += self.vector.y
         
-    def display(self):
-        fill(self.c)
-        ellipse(self.x, self.y, self.diameter, self.diameter)
-        
-    def animate(self):
-        self.move()
-        self.display()

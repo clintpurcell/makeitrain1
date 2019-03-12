@@ -12,7 +12,15 @@ class BigShooter(Sprite):
     mark = 0
     wait = 2000
     go = True
+    sw = 10
     
+    def display(self):
+        fill(self.c)
+        stroke(0)
+        strokeWeight(self.sw)
+        ellipse(self.x, self.y, self.diameter, self.diameter)
+        noStroke()
+        
     def __init__(self, x, y, team):
         self.x = random(0, 900)
         self.y = random(0,50)
