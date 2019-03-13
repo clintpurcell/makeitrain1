@@ -4,7 +4,7 @@ from Sprite import Sprite
 
 class Player(Sprite):
     
-    
+    img = None
     # instance variables
     left = False
     right = False
@@ -16,9 +16,13 @@ class Player(Sprite):
     sw = 1
     
     def __init__(self, x, y, team):
-        self.x = x
-        self.y = y
-        self.team = team
+        Sprite.__init__(self, x, y, team)
+        self.img = loadImage("trump gunna.png")
+    
+    def display(self):
+        image(self.img, self.x-40, self.y-25, 70, 70)
+
+
 
     def move(self):
         if self.left:

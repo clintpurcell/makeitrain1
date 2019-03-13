@@ -12,7 +12,12 @@ class BigShooter(Sprite):
     mark = 0
     wait = 2000
     go = True
-    sw = 10
+    sw = 3
+    
+    def handleCollision(self):
+        self.sw -= 1
+        if self.sw < 1:
+            SpriteManager.destroy(self)
     
     def display(self):
         fill(self.c)
