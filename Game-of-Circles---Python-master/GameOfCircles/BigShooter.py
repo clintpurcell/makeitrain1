@@ -3,8 +3,9 @@ import math
 from Player import Player
 from Sprite import Sprite
 from BigShot import BigShot
+from armor import armor
 
-class BigShooter(Sprite):
+class BigShooter(armor, Sprite):
     
     speed = 2
     diameter = 90
@@ -14,17 +15,8 @@ class BigShooter(Sprite):
     go = True
     sw = 3
     
-    def handleCollision(self):
-        self.sw -= 1
-        if self.sw < 1:
-            SpriteManager.destroy(self)
     
-    def display(self):
-        fill(self.c)
-        stroke(0)
-        strokeWeight(self.sw)
-        ellipse(self.x, self.y, self.diameter, self.diameter)
-        noStroke()
+    
         
     def __init__(self, x, y, team):
         self.x = random(0, 900)

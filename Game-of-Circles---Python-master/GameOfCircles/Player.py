@@ -1,8 +1,10 @@
 import SpriteManager
 from Bullet import Bullet
 from Sprite import Sprite
+from armor import armor
+from PeaShooter import PeaShooter
 
-class Player(Sprite):
+class Player(PeaShooter, armor, Sprite):
     
     img = None
     # instance variables
@@ -13,16 +15,11 @@ class Player(Sprite):
     speed = 5
     diameter = 50  
     c = color(255,0,0)
-    sw = 1
+    sw = 3
     
     def __init__(self, x, y, team):
         Sprite.__init__(self, x, y, team)
-        self.img = loadImage("trump gunna.png")
     
-    def display(self):
-        image(self.img, self.x-40, self.y-25, 70, 70)
-
-
 
     def move(self):
         if self.left:

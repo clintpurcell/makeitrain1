@@ -42,9 +42,7 @@ def draw():
     SpriteManager.animate()    
     
 def keyPressed():
-    global player
     SpriteManager.getPlayer().keyDown()    
         
 def keyReleased():
-    global player
     SpriteManager.getPlayer().keyUp()
