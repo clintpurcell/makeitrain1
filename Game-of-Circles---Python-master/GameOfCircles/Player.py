@@ -15,7 +15,7 @@ class Player(PeaShooter, armor, Sprite):
     speed = 5
     diameter = 50  
     c = color(255,0,0)
-    sw = 3
+    sw = 10
     
     def __init__(self, x, y, team):
         Sprite.__init__(self, x, y, team)
