@@ -2,9 +2,9 @@ import SpriteManager
 from Bullet import Bullet
 from Sprite import Sprite
 from armor import armor
-from PeaShooter import PeaShooter
+from Pwr import Pwr
 
-class Player(PeaShooter, armor, Sprite):
+class Player(armor, Sprite):
     
     img = None
     # instance variables
@@ -15,10 +15,16 @@ class Player(PeaShooter, armor, Sprite):
     speed = 5
     diameter = 50  
     c = color(255,0,0)
-    sw = 10
+    sw = 1
     
     def __init__(self, x, y, team):
         Sprite.__init__(self, x, y, team)
+        
+    def handleCollisions(self, other):
+        if(Player.collison(Pwr)):
+            pass
+        else:
+            SpriteManager.destroy(self)
     
 
     def move(self):
@@ -38,9 +44,9 @@ class Player(PeaShooter, armor, Sprite):
             
     def keyDown(self):
         if key == 's' or key == 'S':
-            SpriteManager.spawn(Bullet(self.x, self.y, PVector(0, 10), self.team))
+            SpriteManager.spawn(Bullet(self.x, self.y, PVector(0, 10), 100))
         if key == ' ' or key == 'w':
-            SpriteManager.spawn(Bullet(self.x, self.y, PVector(0, -10), self.team))
+            SpriteManager.spawn(Bullet(self.x, self.y, PVector(0, -10), 100))
             
             
         if keyCode == LEFT:
