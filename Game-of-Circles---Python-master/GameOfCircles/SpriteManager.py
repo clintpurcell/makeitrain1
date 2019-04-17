@@ -2,6 +2,7 @@ import math
 import SpriteManager
 from Player import Player
 from Pwr import Pwr
+from Bullet import Bullet
 
 sprites = []
 destroyed = []
@@ -41,9 +42,17 @@ def checkCollisions():
             b = sprites[j]
             if a.team == 1 and b.team == 3 and collision(a, b):
                 b.handleCollision(a)
-                Player.sw += 10
                 SpriteManager.spawn(Pwr(20, 400, 3))
-            elif a.team == 1 or a.team == 3 and b.team == 100 and collision(a, b):
+                SpriteManager.spawn(Bullet(getPlayer().x, getPlayer().y, PVector(0, 10), 100))
+                SpriteManager.spawn(Bullet(getPlayer().x, getPlayer().y, PVector(0, -10), 100))
+                SpriteManager.spawn(Bullet(getPlayer().x, getPlayer().y, PVector(10, 0), 100))
+                SpriteManager.spawn(Bullet(getPlayer().x, getPlayer().y, PVector(-10, 0), 100))
+                SpriteManager.spawn(Bullet(getPlayer().x, getPlayer().y, PVector(10, 10), 100))
+                SpriteManager.spawn(Bullet(getPlayer().x, getPlayer().y, PVector(10, -10), 100))
+                SpriteManager.spawn(Bullet(getPlayer().x, getPlayer().y, PVector(-10, 10), 100))
+                SpriteManager.spawn(Bullet(getPlayer().x, getPlayer().y, PVector(-10, -10), 100))
+                
+            elif a.team == 3 or a.team == 1 and b.team == 100 and collision(a, b):
                 pass
             elif a.team != b.team and collision(a, b):
                 a.handleCollision(b)
@@ -59,4 +68,3 @@ def bringOutTheDead():
     for sprite in destroyed:
         if sprite in sprites:
             sprites.remove(sprite)
-        destroyed.remove(sprite)

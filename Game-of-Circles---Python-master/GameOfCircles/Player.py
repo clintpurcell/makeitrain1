@@ -3,8 +3,9 @@ from Bullet import Bullet
 from Sprite import Sprite
 from armor import armor
 from Pwr import Pwr
+from burstShot import burstShot
 
-class Player(armor, Sprite):
+class Player(armor, Sprite, burstShot):
     
     img = None
     # instance variables
@@ -16,6 +17,7 @@ class Player(armor, Sprite):
     diameter = 50  
     c = color(255,0,0)
     sw = 1
+
     
     def __init__(self, x, y, team):
         Sprite.__init__(self, x, y, team)
@@ -47,7 +49,6 @@ class Player(armor, Sprite):
             SpriteManager.spawn(Bullet(self.x, self.y, PVector(0, 10), 100))
         if key == ' ' or key == 'w':
             SpriteManager.spawn(Bullet(self.x, self.y, PVector(0, -10), 100))
-            
             
         if keyCode == LEFT:
             self.left = True
